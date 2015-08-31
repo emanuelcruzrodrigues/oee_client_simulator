@@ -1,5 +1,5 @@
 
-package br.feevale.tc.oee.ws.apontamento;
+package br.feevale.tc.oee.ws.indice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -10,15 +10,15 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o Conteudo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{apontamento.ws.oee.tc.feevale.br}codigoEquipamento"/>
- *         &lt;element ref="{apontamento.ws.oee.tc.feevale.br}codigoMotivoParada"/>
+ *         &lt;element ref="{indice.ws.oee.tc.feevale.br}codigoEquipamento"/>
+ *         &lt;element ref="{indice.ws.oee.tc.feevale.br}periodoMinutos"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,13 +30,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "codigoEquipamento",
-    "codigoMotivoParada"
+    "periodoMinutos"
 })
-@XmlRootElement(name = "iniciarApontamentoParadaRequest")
-public class IniciarApontamentoParadaRequest {
+@XmlRootElement(name = "getIndiceOEETempoRealRequest")
+public class GetIndiceOEETempoRealRequest {
 
     protected int codigoEquipamento;
-    protected int codigoMotivoParada;
+    protected int periodoMinutos;
 
     /**
      * Obtem o valor da propriedade codigoEquipamento.
@@ -55,19 +55,19 @@ public class IniciarApontamentoParadaRequest {
     }
 
     /**
-     * Obtem o valor da propriedade codigoMotivoParada.
+     * Obtem o valor da propriedade periodoMinutos.
      * 
      */
-    public int getCodigoMotivoParada() {
-        return codigoMotivoParada;
+    public int getPeriodoMinutos() {
+        return periodoMinutos;
     }
 
     /**
-     * Define o valor da propriedade codigoMotivoParada.
+     * Define o valor da propriedade periodoMinutos.
      * 
      */
-    public void setCodigoMotivoParada(int value) {
-        this.codigoMotivoParada = value;
+    public void setPeriodoMinutos(int value) {
+        this.periodoMinutos = value;
     }
 
 }

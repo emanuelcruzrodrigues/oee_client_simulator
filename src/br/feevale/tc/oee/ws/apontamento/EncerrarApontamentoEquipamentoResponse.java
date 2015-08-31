@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -38,7 +38,7 @@ public class EncerrarApontamentoEquipamentoResponse {
     protected String erros;
 
     /**
-     * Obtém o valor da propriedade erros.
+     * Obtem o valor da propriedade erros.
      * 
      * @return
      *     possible object is

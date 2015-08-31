@@ -21,6 +21,7 @@ public class AnalisadorQualidadeEquipamentoThread extends Thread {
 		try {
 			while(true){
 				Thread.sleep(ThreadUtils.aplicarConversaoIntervalo(5));
+				if (!equipamento.isLigado()) return;
 				for (OrdemProducao ordemProducao : equipamento.getOrdensProducao()) {
 					Simulacao simulacao = Simulacao.getInstance();
 					Integer quantidadeProduzida = simulacao.zerarQuantidadeProduzida(ordemProducao);
@@ -35,7 +36,6 @@ public class AnalisadorQualidadeEquipamentoThread extends Thread {
 						simulacao.getApontamentoWS().inserirApontamentoQuantidadeRefugo(ordemProducao, refugo);
 					}
 				}
-				if (!equipamento.isLigado()) return;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

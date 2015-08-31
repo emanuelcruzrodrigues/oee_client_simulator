@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -41,7 +41,7 @@ public class ExcluirProgramacaoProducaoEquipamentoRequest {
     protected Data data;
 
     /**
-     * Obtém o valor da propriedade codigoEquipamento.
+     * Obtem o valor da propriedade codigoEquipamento.
      * 
      */
     public int getCodigoEquipamento() {
@@ -57,7 +57,7 @@ public class ExcluirProgramacaoProducaoEquipamentoRequest {
     }
 
     /**
-     * Obtém o valor da propriedade data.
+     * Obtem o valor da propriedade data.
      * 
      * @return
      *     possible object is

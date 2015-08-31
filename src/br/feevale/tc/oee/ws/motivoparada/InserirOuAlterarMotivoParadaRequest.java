@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -49,7 +49,7 @@ public class InserirOuAlterarMotivoParadaRequest {
     protected String situacao;
 
     /**
-     * Obtém o valor da propriedade codigo.
+     * Obtem o valor da propriedade codigo.
      * 
      */
     public int getCodigo() {
@@ -65,7 +65,7 @@ public class InserirOuAlterarMotivoParadaRequest {
     }
 
     /**
-     * Obtém o valor da propriedade descricao.
+     * Obtem o valor da propriedade descricao.
      * 
      * @return
      *     possible object is
@@ -89,7 +89,7 @@ public class InserirOuAlterarMotivoParadaRequest {
     }
 
     /**
-     * Obtém o valor da propriedade tipoParada.
+     * Obtem o valor da propriedade tipoParada.
      * 
      * @return
      *     possible object is
@@ -113,7 +113,7 @@ public class InserirOuAlterarMotivoParadaRequest {
     }
 
     /**
-     * Obtém o valor da propriedade situacao.
+     * Obtem o valor da propriedade situacao.
      * 
      * @return
      *     possible object is

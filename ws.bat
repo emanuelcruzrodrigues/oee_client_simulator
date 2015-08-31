@@ -21,5 +21,6 @@ call ws_function.bat http://localhost:8080/oee/ws/inserirApontamentoQuantidadeRe
 
 call ws_function.bat http://localhost:8080/oee/ws/encerrarApontamentoEquipamentoServiceDefinition.wsdl
 
+call ws_function.bat http://localhost:8080/oee/ws/getIndiceOEETempoRealServiceDefinition.wsdl
 
 PAUSE
