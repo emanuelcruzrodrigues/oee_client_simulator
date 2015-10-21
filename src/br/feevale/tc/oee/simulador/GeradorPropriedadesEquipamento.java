@@ -48,8 +48,9 @@ public class GeradorPropriedadesEquipamento {
 		equipamento.addOrdemProducao(new OrdemProducaoDTO(102, "JIT 150822 - Corte", 2, 3, 500));
 		equipamento.addOrdemProducao(new OrdemProducaoDTO(103, "JIT 150824 - Corte", 3, 4, 5000));
 		
-		equipamento.addProgramacaoProducao(new ProgramacaoProducaoEquipamentoDTO(new DataHoraDTO(2015, 8, 27, 15, 45)
-																			   , new DataHoraDTO(2015, 8, 27, 17, 18)));
+		equipamento.addProgramacaoProducao(new ProgramacaoProducaoEquipamentoDTO(1
+																				, new DataHoraDTO(2015, 8, 27, 15, 45)
+																			   	, new DataHoraDTO(2015, 8, 27, 17, 18)));
 		
 		String xml = xStream.toXML(equipamento);
 		try(PrintWriter writer = new PrintWriter("D:\\equipamento_1.xml")){
@@ -85,7 +86,8 @@ public class GeradorPropriedadesEquipamento {
 		equipamento.addOrdemProducao(new OrdemProducaoDTO(202, "JIT 150822 - Perfilamento", 2, 3, 500));
 		equipamento.addOrdemProducao(new OrdemProducaoDTO(203, "JIT 150824 - Perfilamento", 3, 5, 5000));
 		
-		equipamento.addProgramacaoProducao(new ProgramacaoProducaoEquipamentoDTO(new DataHoraDTO(2015, 8, 27, 15, 50)
+		equipamento.addProgramacaoProducao(new ProgramacaoProducaoEquipamentoDTO(1
+																				, new DataHoraDTO(2015, 8, 27, 15, 50)
 		   																		, new DataHoraDTO(2015, 8, 27, 17, 18)));
 		
 		String xml = xStream.toXML(equipamento);
@@ -123,7 +125,8 @@ public class GeradorPropriedadesEquipamento {
 		equipamento.addOrdemProducao(new OrdemProducaoDTO(303, "JIT 150824 - Injecao", 2, 3, 2500));
 		equipamento.addOrdemProducao(new OrdemProducaoDTO(304, "JIT 150825 - Injecao", 2, 3, 2500));
 		
-		equipamento.addProgramacaoProducao(new ProgramacaoProducaoEquipamentoDTO(new DataHoraDTO(2015, 8, 27, 16, 00)
+		equipamento.addProgramacaoProducao(new ProgramacaoProducaoEquipamentoDTO(1
+																					, new DataHoraDTO(2015, 8, 27, 16, 00)
 																					, new DataHoraDTO(2015, 8, 27, 17, 18)));
 		
 		String xml = xStream.toXML(equipamento);

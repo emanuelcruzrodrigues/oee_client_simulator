@@ -24,8 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CodigoEquipamento_QNAME = new QName("programacao.ws.oee.tc.feevale.br", "codigoEquipamento");
     private final static QName _Erros_QNAME = new QName("programacao.ws.oee.tc.feevale.br", "erros");
+    private final static QName _Codigo_QNAME = new QName("programacao.ws.oee.tc.feevale.br", "codigo");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.feevale.tc.oee.ws.programacao
@@ -51,29 +51,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Data }
-     * 
-     */
-    public Data createData() {
-        return new Data();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "programacao.ws.oee.tc.feevale.br", name = "codigoEquipamento")
-    public JAXBElement<Integer> createCodigoEquipamento(Integer value) {
-        return new JAXBElement<Integer>(_CodigoEquipamento_QNAME, Integer.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "programacao.ws.oee.tc.feevale.br", name = "erros")
     public JAXBElement<String> createErros(String value) {
         return new JAXBElement<String>(_Erros_QNAME, String.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "programacao.ws.oee.tc.feevale.br", name = "codigo")
+    public JAXBElement<Integer> createCodigo(Integer value) {
+        return new JAXBElement<Integer>(_Codigo_QNAME, Integer.class, null, value);
     }
 
 }

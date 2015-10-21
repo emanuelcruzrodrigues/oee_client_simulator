@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o Conteudo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -50,7 +50,7 @@ public class GetIndiceOEETempoRealResponse {
     protected String erros;
 
     /**
-     * Obtem o valor da propriedade disponibilidade.
+     * Obtém o valor da propriedade disponibilidade.
      * 
      */
     public double getDisponibilidade() {
@@ -66,7 +66,7 @@ public class GetIndiceOEETempoRealResponse {
     }
 
     /**
-     * Obtem o valor da propriedade desempenho.
+     * Obtém o valor da propriedade desempenho.
      * 
      */
     public double getDesempenho() {
@@ -82,7 +82,7 @@ public class GetIndiceOEETempoRealResponse {
     }
 
     /**
-     * Obtem o valor da propriedade qualidade.
+     * Obtém o valor da propriedade qualidade.
      * 
      */
     public double getQualidade() {
@@ -98,7 +98,7 @@ public class GetIndiceOEETempoRealResponse {
     }
 
     /**
-     * Obtem o valor da propriedade oee.
+     * Obtém o valor da propriedade oee.
      * 
      */
     public double getOee() {
@@ -114,7 +114,7 @@ public class GetIndiceOEETempoRealResponse {
     }
 
     /**
-     * Obtem o valor da propriedade erros.
+     * Obtém o valor da propriedade erros.
      * 
      * @return
      *     possible object is

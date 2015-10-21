@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o Conteudo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -39,7 +39,7 @@ public class GetIndiceOEETempoRealRequest {
     protected int periodoMinutos;
 
     /**
-     * Obtem o valor da propriedade codigoEquipamento.
+     * Obtém o valor da propriedade codigoEquipamento.
      * 
      */
     public int getCodigoEquipamento() {
@@ -55,7 +55,7 @@ public class GetIndiceOEETempoRealRequest {
     }
 
     /**
-     * Obtem o valor da propriedade periodoMinutos.
+     * Obtém o valor da propriedade periodoMinutos.
      * 
      */
     public int getPeriodoMinutos() {

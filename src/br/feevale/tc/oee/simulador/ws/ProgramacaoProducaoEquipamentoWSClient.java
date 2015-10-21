@@ -8,34 +8,41 @@ import javax.xml.namespace.QName;
 import br.feevale.tc.oee.simulador.dto.DataHoraDTO;
 import br.feevale.tc.oee.simulador.dto.ProgramacaoProducaoEquipamentoDTO;
 import br.feevale.tc.oee.simulador.model.Equipamento;
-import br.feevale.tc.oee.ws.programacao.Data;
 import br.feevale.tc.oee.ws.programacao.DataHoraFinal;
 import br.feevale.tc.oee.ws.programacao.DataHoraInicial;
 import br.feevale.tc.oee.ws.programacao.ExcluirProgramacaoProducaoEquipamento;
 import br.feevale.tc.oee.ws.programacao.ExcluirProgramacaoProducaoEquipamentoRequest;
-import br.feevale.tc.oee.ws.programacao.InserirProgramacaoProducaoEquipamento;
-import br.feevale.tc.oee.ws.programacao.InserirProgramacaoProducaoEquipamentoRequest;
-import br.feevale.tc.oee.ws.programacao.InserirProgramacaoProducaoEquipamentoService;
+import br.feevale.tc.oee.ws.programacao.ExcluirProgramacaoProducaoEquipamentoResponse;
+import br.feevale.tc.oee.ws.programacao.InserirOuAlterarProgramacaoProducaoEquipamento;
+import br.feevale.tc.oee.ws.programacao.InserirOuAlterarProgramacaoProducaoEquipamentoRequest;
+import br.feevale.tc.oee.ws.programacao.InserirOuAlterarProgramacaoProducaoEquipamentoResponse;
+import br.feevale.tc.oee.ws.programacao.InserirOuAlterarProgramacaoProducaoEquipamentoService;
 
+/**
+ * 
+ * @author Emanuel Cruz Rodrigues -> emanuelcruzrodrigues@gmail.com
+ * @see ProgramacaoProducaoEquipamentoWSClientTest
+ *
+ */
 public class ProgramacaoProducaoEquipamentoWSClient {
 	
 	private static final String NAMESPACE = "programacao.ws.oee.tc.feevale.br";
-	private static final String INSERIR_SERVICE_NAME = "inserirProgramacaoProducaoEquipamentoService";
+	private static final String INSERIR_SERVICE_NAME = "inserirOuAlterarProgramacaoProducaoEquipamentoService";
 	private static final String EXCLUIR_SERVICE_NAME = "excluirProgramacaoProducaoEquipamentoService";
 	
-	private InserirProgramacaoProducaoEquipamento portInserir;
+	private InserirOuAlterarProgramacaoProducaoEquipamento portInserirOuAlterar;
 	private ExcluirProgramacaoProducaoEquipamento portExcluir;
 
 	public ProgramacaoProducaoEquipamentoWSClient(String oeeServerURL) {
 		try {
 			URL wsdlLocationIncluir = new URL(oeeServerURL + INSERIR_SERVICE_NAME + "Definition.wsdl");
 			
-			portInserir = new InserirProgramacaoProducaoEquipamentoService(wsdlLocationIncluir, new QName(NAMESPACE, INSERIR_SERVICE_NAME))
-								.getPort(InserirProgramacaoProducaoEquipamento.class);
+			portInserirOuAlterar = new InserirOuAlterarProgramacaoProducaoEquipamentoService(wsdlLocationIncluir, new QName(NAMESPACE, INSERIR_SERVICE_NAME))
+												.getPort(InserirOuAlterarProgramacaoProducaoEquipamento.class);
 			
 			URL wsdlLocationExcluir = new URL(oeeServerURL + EXCLUIR_SERVICE_NAME + "Definition.wsdl");
-			portExcluir = new InserirProgramacaoProducaoEquipamentoService(wsdlLocationExcluir, new QName(NAMESPACE, EXCLUIR_SERVICE_NAME))
-								.getPort(ExcluirProgramacaoProducaoEquipamento.class);
+			portExcluir = new InserirOuAlterarProgramacaoProducaoEquipamentoService(wsdlLocationExcluir, new QName(NAMESPACE, EXCLUIR_SERVICE_NAME))
+												.getPort(ExcluirProgramacaoProducaoEquipamento.class);
 			
 			
 		} catch (MalformedURLException e) {
@@ -43,41 +50,28 @@ public class ProgramacaoProducaoEquipamentoWSClient {
 		}
 	}
 	
-	public void programarEquipamento(Equipamento equipamento){
-		excluirProgramacoes(equipamento);
-		inserirProgramacoes(equipamento);
-	}
-
-	private void excluirProgramacoes(Equipamento equipamento) {
-		for (ProgramacaoProducaoEquipamentoDTO dto : equipamento.getDTO().getProgramacoesProducao()) {
-			
-			ExcluirProgramacaoProducaoEquipamentoRequest request = new ExcluirProgramacaoProducaoEquipamentoRequest();
-			request.setCodigoEquipamento(equipamento.getId());
-			
-			request.setData(toData(dto.getDtHrInicio()));
-			portExcluir.excluirProgramacaoProducaoEquipamento(request);
-			
-			request.setData(toData(dto.getDtHrFim()));
-			portExcluir.excluirProgramacaoProducaoEquipamento(request);
-			
-		}
+	public InserirOuAlterarProgramacaoProducaoEquipamentoResponse inserirOuAlterar(Integer codigo, int codigoEquipamento, DataHoraInicial dataHoraInicial, DataHoraFinal dataHoraFinal) {
+		InserirOuAlterarProgramacaoProducaoEquipamentoRequest request = new InserirOuAlterarProgramacaoProducaoEquipamentoRequest();
+		request.setCodigo(codigo);
+		request.setCodigoEquipamento(codigoEquipamento);
+		request.setDataHoraInicial(dataHoraInicial);
+		request.setDataHoraFinal(dataHoraFinal);
+		return portInserirOuAlterar.inserirOuAlterarProgramacaoProducaoEquipamento(request);
 	}
 	
-	private Data toData(DataHoraDTO dtHrInicio) {
-		Data data = new Data();
-		data.setAno(dtHrInicio.getAno());
-		data.setMes(dtHrInicio.getMes());
-		data.setDia(dtHrInicio.getDia());
-		return data;
+	public ExcluirProgramacaoProducaoEquipamentoResponse excluir(Integer codigo){
+		ExcluirProgramacaoProducaoEquipamentoRequest request = new ExcluirProgramacaoProducaoEquipamentoRequest();
+		request.setCodigo(codigo);
+		return portExcluir.excluirProgramacaoProducaoEquipamento(request);
+	}
+	
+	public void programarEquipamento(Equipamento equipamento){
+		inserirProgramacoes(equipamento);
 	}
 
 	private void inserirProgramacoes(Equipamento equipamento) {
 		for (ProgramacaoProducaoEquipamentoDTO dto : equipamento.getDTO().getProgramacoesProducao()) {
-			InserirProgramacaoProducaoEquipamentoRequest request = new InserirProgramacaoProducaoEquipamentoRequest();
-			request.setCodigoEquipamento(equipamento.getId());
-			request.setDataHoraInicial(toDataHoraInicial(dto.getDtHrInicio()));
-			request.setDataHoraFinal(toDataHoraFinal(dto.getDtHrFim()));
-			portInserir.inserirProgramacaoProducaoEquipamento(request);
+			inserirOuAlterar(dto.getId(), equipamento.getId(), toDataHoraInicial(dto.getDtHrInicio()), toDataHoraFinal(dto.getDtHrFim()));
 		}
 	}
 
@@ -101,5 +95,4 @@ public class ProgramacaoProducaoEquipamentoWSClient {
 		return result;
 	}
 	
-
 }

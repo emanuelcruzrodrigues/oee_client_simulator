@@ -24,10 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Situacao_QNAME = new QName("motivoParada.ws.oee.tc.feevale.br", "situacao");
-    private final static QName _Descricao_QNAME = new QName("motivoParada.ws.oee.tc.feevale.br", "descricao");
     private final static QName _Codigo_QNAME = new QName("motivoParada.ws.oee.tc.feevale.br", "codigo");
-    private final static QName _TipoParada_QNAME = new QName("motivoParada.ws.oee.tc.feevale.br", "tipoParada");
     private final static QName _Erros_QNAME = new QName("motivoParada.ws.oee.tc.feevale.br", "erros");
 
     /**
@@ -38,37 +35,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InserirOuAlterarMotivoParadaRequest }
+     * Create an instance of {@link ExcluirMotivoParadaResponse }
      * 
      */
-    public InserirOuAlterarMotivoParadaRequest createInserirOuAlterarMotivoParadaRequest() {
-        return new InserirOuAlterarMotivoParadaRequest();
+    public ExcluirMotivoParadaResponse createExcluirMotivoParadaResponse() {
+        return new ExcluirMotivoParadaResponse();
     }
 
     /**
-     * Create an instance of {@link InserirOuAlterarMotivoParadaResponse }
+     * Create an instance of {@link ExcluirMotivoParadaRequest }
      * 
      */
-    public InserirOuAlterarMotivoParadaResponse createInserirOuAlterarMotivoParadaResponse() {
-        return new InserirOuAlterarMotivoParadaResponse();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "motivoParada.ws.oee.tc.feevale.br", name = "situacao")
-    public JAXBElement<String> createSituacao(String value) {
-        return new JAXBElement<String>(_Situacao_QNAME, String.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "motivoParada.ws.oee.tc.feevale.br", name = "descricao")
-    public JAXBElement<String> createDescricao(String value) {
-        return new JAXBElement<String>(_Descricao_QNAME, String.class, null, value);
+    public ExcluirMotivoParadaRequest createExcluirMotivoParadaRequest() {
+        return new ExcluirMotivoParadaRequest();
     }
 
     /**
@@ -78,15 +57,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "motivoParada.ws.oee.tc.feevale.br", name = "codigo")
     public JAXBElement<Integer> createCodigo(Integer value) {
         return new JAXBElement<Integer>(_Codigo_QNAME, Integer.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "motivoParada.ws.oee.tc.feevale.br", name = "tipoParada")
-    public JAXBElement<String> createTipoParada(String value) {
-        return new JAXBElement<String>(_TipoParada_QNAME, String.class, null, value);
     }
 
     /**

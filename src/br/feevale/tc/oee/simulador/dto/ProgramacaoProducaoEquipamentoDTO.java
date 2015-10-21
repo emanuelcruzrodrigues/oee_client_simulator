@@ -3,11 +3,13 @@ package br.feevale.tc.oee.simulador.dto;
 
 public class ProgramacaoProducaoEquipamentoDTO {
 	
+	private int id;
 	private DataHoraDTO dtHrInicio;
 	private DataHoraDTO dtHrFim;
 	
-	public ProgramacaoProducaoEquipamentoDTO(DataHoraDTO dtHrInicio, DataHoraDTO dtHrFim) {
+	public ProgramacaoProducaoEquipamentoDTO(int id, DataHoraDTO dtHrInicio, DataHoraDTO dtHrFim) {
 		this();
+		this.id = id;
 		this.dtHrInicio = dtHrInicio;
 		this.dtHrFim = dtHrFim;
 	}
@@ -16,6 +18,13 @@ public class ProgramacaoProducaoEquipamentoDTO {
 		super();
 	}
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public DataHoraDTO getDtHrInicio() {
 		return dtHrInicio;
 	}

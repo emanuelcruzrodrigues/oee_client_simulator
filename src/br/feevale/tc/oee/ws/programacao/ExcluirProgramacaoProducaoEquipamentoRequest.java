@@ -11,15 +11,14 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{programacao.ws.oee.tc.feevale.br}codigoEquipamento"/>
- *         &lt;element ref="{programacao.ws.oee.tc.feevale.br}data"/>
+ *         &lt;element ref="{programacao.ws.oee.tc.feevale.br}codigo"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,54 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "codigoEquipamento",
-    "data"
+    "codigo"
 })
 @XmlRootElement(name = "excluirProgramacaoProducaoEquipamentoRequest")
 public class ExcluirProgramacaoProducaoEquipamentoRequest {
 
-    protected int codigoEquipamento;
-    @XmlElement(required = true)
-    protected Data data;
+    @XmlElement(required = true, type = Integer.class, nillable = true)
+    protected Integer codigo;
 
     /**
-     * Obtem o valor da propriedade codigoEquipamento.
-     * 
-     */
-    public int getCodigoEquipamento() {
-        return codigoEquipamento;
-    }
-
-    /**
-     * Define o valor da propriedade codigoEquipamento.
-     * 
-     */
-    public void setCodigoEquipamento(int value) {
-        this.codigoEquipamento = value;
-    }
-
-    /**
-     * Obtem o valor da propriedade data.
+     * Obtém o valor da propriedade codigo.
      * 
      * @return
      *     possible object is
-     *     {@link Data }
+     *     {@link Integer }
      *     
      */
-    public Data getData() {
-        return data;
+    public Integer getCodigo() {
+        return codigo;
     }
 
     /**
-     * Define o valor da propriedade data.
+     * Define o valor da propriedade codigo.
      * 
      * @param value
      *     allowed object is
-     *     {@link Data }
+     *     {@link Integer }
      *     
      */
-    public void setData(Data value) {
-        this.data = value;
+    public void setCodigo(Integer value) {
+        this.codigo = value;
     }
 
 }

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -39,7 +39,7 @@ public class InserirApontamentoQuantidadeRefugoRequest {
     protected double quantidade;
 
     /**
-     * Obtem o valor da propriedade codigoOrdemProducao.
+     * Obtém o valor da propriedade codigoOrdemProducao.
      * 
      */
     public int getCodigoOrdemProducao() {
@@ -55,7 +55,7 @@ public class InserirApontamentoQuantidadeRefugoRequest {
     }
 
     /**
-     * Obtem o valor da propriedade quantidade.
+     * Obtém o valor da propriedade quantidade.
      * 
      */
     public double getQuantidade() {

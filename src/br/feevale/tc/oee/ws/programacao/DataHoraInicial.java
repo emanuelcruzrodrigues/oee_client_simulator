@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de anonymous complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType>
@@ -46,7 +46,7 @@ public class DataHoraInicial {
     protected int minuto;
 
     /**
-     * Obtem o valor da propriedade ano.
+     * Obtém o valor da propriedade ano.
      * 
      */
     public int getAno() {
@@ -62,7 +62,7 @@ public class DataHoraInicial {
     }
 
     /**
-     * Obtem o valor da propriedade mes.
+     * Obtém o valor da propriedade mes.
      * 
      */
     public int getMes() {
@@ -78,7 +78,7 @@ public class DataHoraInicial {
     }
 
     /**
-     * Obtem o valor da propriedade dia.
+     * Obtém o valor da propriedade dia.
      * 
      */
     public int getDia() {
@@ -94,7 +94,7 @@ public class DataHoraInicial {
     }
 
     /**
-     * Obtem o valor da propriedade hora.
+     * Obtém o valor da propriedade hora.
      * 
      */
     public int getHora() {
@@ -110,7 +110,7 @@ public class DataHoraInicial {
     }
 
     /**
-     * Obtem o valor da propriedade minuto.
+     * Obtém o valor da propriedade minuto.
      * 
      */
     public int getMinuto() {

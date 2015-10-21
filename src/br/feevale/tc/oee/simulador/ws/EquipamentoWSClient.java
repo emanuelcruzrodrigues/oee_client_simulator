@@ -6,35 +6,59 @@ import java.net.URL;
 import javax.xml.namespace.QName;
 
 import br.feevale.tc.oee.simulador.dto.EquipamentoDTO;
+import br.feevale.tc.oee.ws.equipamento.ExcluirEquipamento;
+import br.feevale.tc.oee.ws.equipamento.ExcluirEquipamentoRequest;
+import br.feevale.tc.oee.ws.equipamento.ExcluirEquipamentoResponse;
+import br.feevale.tc.oee.ws.equipamento.ExcluirEquipamentoService;
 import br.feevale.tc.oee.ws.equipamento.InserirOuAlterarEquipamento;
 import br.feevale.tc.oee.ws.equipamento.InserirOuAlterarEquipamentoRequest;
+import br.feevale.tc.oee.ws.equipamento.InserirOuAlterarEquipamentoResponse;
 import br.feevale.tc.oee.ws.equipamento.InserirOuAlterarEquipamentoService;
 
+/**
+ * 
+ * @author Emanuel Cruz Rodrigues -> emanuelcruzrodrigues@gmail.com
+ * @see EquipamentoWSClientTest
+ *
+ */
 public class EquipamentoWSClient {
 	
 	private static final String NAMESPACE = "equipamento.ws.oee.tc.feevale.br";
-	private static final String SERVICE_NAME = "inserirOuAlterarEquipamentoService";
+	private static final String INSERIR_SERVICE_NAME = "inserirOuAlterarEquipamentoService";
+	private static final String EXCLUIR_SERVICE_NAME = "excluirEquipamentoService";
 	
-	private InserirOuAlterarEquipamento port;
+	private InserirOuAlterarEquipamento portInserirAlterar;
+	private ExcluirEquipamento portExcluir;
 
 	public EquipamentoWSClient(String oeeServerURL) {
 		try {
-			URL wsdlLocation = new URL(oeeServerURL + SERVICE_NAME + "Definition.wsdl");
-			QName qname = new QName(NAMESPACE, SERVICE_NAME);
+			portInserirAlterar = new InserirOuAlterarEquipamentoService(
+											  new URL(oeeServerURL + INSERIR_SERVICE_NAME + "Definition.wsdl")
+											, new QName(NAMESPACE, INSERIR_SERVICE_NAME))
+										.getPort(InserirOuAlterarEquipamento.class);
 			
-			InserirOuAlterarEquipamentoService service = new InserirOuAlterarEquipamentoService(wsdlLocation, qname);
-			port = service.getPort(InserirOuAlterarEquipamento.class);
+			portExcluir = new ExcluirEquipamentoService(
+											new URL(oeeServerURL + EXCLUIR_SERVICE_NAME + "Definition.wsdl")
+										  , new QName(NAMESPACE, EXCLUIR_SERVICE_NAME))
+										.getPort(ExcluirEquipamento.class);
+			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void inserirOuAlterar(EquipamentoDTO equipamentoDTO){
+	public InserirOuAlterarEquipamentoResponse inserirOuAlterar(EquipamentoDTO equipamentoDTO){
 		InserirOuAlterarEquipamentoRequest request = new InserirOuAlterarEquipamentoRequest();
 		request.setCodigo(equipamentoDTO.getId());
 		request.setNome(equipamentoDTO.getNome());
 		request.setSituacao("A");
-		port.inserirOuAlterarEquipamento(request);
+		return portInserirAlterar.inserirOuAlterarEquipamento(request);
 	}
-
+	
+	public ExcluirEquipamentoResponse excluir(int codigo){
+		ExcluirEquipamentoRequest request = new ExcluirEquipamentoRequest();
+		request.setCodigo(codigo);
+		return portExcluir.excluirEquipamento(request);
+	}
+	
 }

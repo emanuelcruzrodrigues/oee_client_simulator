@@ -1,0 +1,54 @@
+
+package br.feevale.tc.oee.ws.motivoparada;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Classe Java de anonymous complex type.
+ * 
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * 
+ * <pre>
+ * &lt;complexType>
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element ref="{motivoParada.ws.oee.tc.feevale.br}codigo"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "codigo"
+})
+@XmlRootElement(name = "excluirMotivoParadaRequest")
+public class ExcluirMotivoParadaRequest {
+
+    protected int codigo;
+
+    /**
+     * Obtém o valor da propriedade codigo.
+     * 
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * Define o valor da propriedade codigo.
+     * 
+     */
+    public void setCodigo(int value) {
+        this.codigo = value;
+    }
+
+}

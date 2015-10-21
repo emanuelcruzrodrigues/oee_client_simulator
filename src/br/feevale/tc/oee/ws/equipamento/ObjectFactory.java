@@ -26,8 +26,6 @@ public class ObjectFactory {
 
     private final static QName _Codigo_QNAME = new QName("equipamento.ws.oee.tc.feevale.br", "codigo");
     private final static QName _Erros_QNAME = new QName("equipamento.ws.oee.tc.feevale.br", "erros");
-    private final static QName _Situacao_QNAME = new QName("equipamento.ws.oee.tc.feevale.br", "situacao");
-    private final static QName _Nome_QNAME = new QName("equipamento.ws.oee.tc.feevale.br", "nome");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.feevale.tc.oee.ws.equipamento
@@ -37,19 +35,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InserirOuAlterarEquipamentoRequest }
+     * Create an instance of {@link ExcluirEquipamentoRequest }
      * 
      */
-    public InserirOuAlterarEquipamentoRequest createInserirOuAlterarEquipamentoRequest() {
-        return new InserirOuAlterarEquipamentoRequest();
+    public ExcluirEquipamentoRequest createExcluirEquipamentoRequest() {
+        return new ExcluirEquipamentoRequest();
     }
 
     /**
-     * Create an instance of {@link InserirOuAlterarEquipamentoResponse }
+     * Create an instance of {@link ExcluirEquipamentoResponse }
      * 
      */
-    public InserirOuAlterarEquipamentoResponse createInserirOuAlterarEquipamentoResponse() {
-        return new InserirOuAlterarEquipamentoResponse();
+    public ExcluirEquipamentoResponse createExcluirEquipamentoResponse() {
+        return new ExcluirEquipamentoResponse();
     }
 
     /**
@@ -68,24 +66,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "equipamento.ws.oee.tc.feevale.br", name = "erros")
     public JAXBElement<String> createErros(String value) {
         return new JAXBElement<String>(_Erros_QNAME, String.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "equipamento.ws.oee.tc.feevale.br", name = "situacao")
-    public JAXBElement<String> createSituacao(String value) {
-        return new JAXBElement<String>(_Situacao_QNAME, String.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "equipamento.ws.oee.tc.feevale.br", name = "nome")
-    public JAXBElement<String> createNome(String value) {
-        return new JAXBElement<String>(_Nome_QNAME, String.class, null, value);
     }
 
 }
