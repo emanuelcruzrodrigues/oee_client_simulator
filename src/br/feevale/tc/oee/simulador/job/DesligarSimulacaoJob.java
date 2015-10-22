@@ -13,7 +13,7 @@ public class DesligarSimulacaoJob implements Job{
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
 		Simulacao simulacao = Simulacao.getInstance();
 		for (Equipamento equipamento : simulacao.getEquipamentos()) {
-			simulacao.getApontamentoWS().encerrarApontamentos(equipamento);
+			simulacao.getApontamentoWS().encerrarApontamentos(equipamento.getId());
 		}
 		System.exit(0);
 	}

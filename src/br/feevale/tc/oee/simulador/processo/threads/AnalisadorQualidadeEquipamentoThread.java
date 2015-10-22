@@ -31,9 +31,9 @@ public class AnalisadorQualidadeEquipamentoThread extends Thread {
 					
 					Integer refugo = new Double(percentualRefugo * quantidadeProduzida).intValue();
 					
-					simulacao.getApontamentoWS().inserirApontamentoQuantidade(ordemProducao, quantidadeProduzida);
+					simulacao.getApontamentoWS().inserirApontamentoQuantidade(ordemProducao.getId(), quantidadeProduzida);
 					if (refugo > 0){
-						simulacao.getApontamentoWS().inserirApontamentoQuantidadeRefugo(ordemProducao, refugo);
+						simulacao.getApontamentoWS().inserirApontamentoQuantidadeRefugo(ordemProducao.getId(), refugo);
 					}
 				}
 			}

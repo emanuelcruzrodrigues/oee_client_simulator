@@ -66,7 +66,7 @@ public class Equipamento {
 		killThreadParada();
 		
 		logger.info(String.format("Equipamento %d desligado", id));
-		Simulacao.getInstance().getApontamentoWS().encerrarApontamentos(this);
+		Simulacao.getInstance().getApontamentoWS().encerrarApontamentos(getId());
 		
 	}
 
@@ -81,7 +81,7 @@ public class Equipamento {
 		}
 
 		logger.info(String.format("Equipamento %d parado", id));
-		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoParada(this, idMotivoParada);
+		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoParada(getId(), idMotivoParada);
 	}
 	
 	private void iniciarParadaPorFaltaDeMateriaPrima() {
@@ -95,7 +95,7 @@ public class Equipamento {
 		}
 
 		logger.info(String.format("Equipamento %d parado por falta de MP", id));
-		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoParada(this, getDTO().getIdMotivoParadaFaltaMateriaPrima());
+		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoParada(getId(), getDTO().getIdMotivoParadaFaltaMateriaPrima());
 	}
 	
 	private void iniciarParadaPorSetup() {
@@ -109,7 +109,7 @@ public class Equipamento {
 		}
 		
 		logger.info(String.format("Equipamento %d parado por setup", id));
-		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoParada(this, getDTO().getIdMotivoParadaSetupOrdemProducao());
+		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoParada(getId(), getDTO().getIdMotivoParadaSetupOrdemProducao());
 	}
 	
 	private void iniciarParadaPorQualidade() {
@@ -123,7 +123,7 @@ public class Equipamento {
 		}
 		
 		logger.info(String.format("Equipamento %d parado por qualidade (testes)", id));
-		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoParada(this, getDTO().getIdMotivoParadaQualidade());
+		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoParada(getId(), getDTO().getIdMotivoParadaQualidade());
 	}
 
 	
@@ -147,7 +147,7 @@ public class Equipamento {
 		}
 		
 		logger.info(String.format("Equipamento %d em producao", id));
-		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoProducao(ordemProducao);
+		Simulacao.getInstance().getApontamentoWS().iniciarApontamentoProducao(ordemProducao.getId());
 	}
 	
 	public void produzir(EquipamentoProducaoThread thread, Integer quantidadeProduzida) {

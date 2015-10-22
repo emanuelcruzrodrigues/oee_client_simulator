@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.feevale.tc.oee.driver.ws.ApontamentoWSClient;
 import br.feevale.tc.oee.simulador.dto.EncadeamentoProcessoDTO;
 import br.feevale.tc.oee.simulador.dto.SimulacaoDTO;
-import br.feevale.tc.oee.simulador.ws.ApontamentoWSClient;
 
 public class Simulacao {
 	
