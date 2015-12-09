@@ -27,6 +27,7 @@ public class EquipamentoDTO {
 	private int bufferInicioProducaoAposFaltaDeMateriaPrima;
 	
 	private double percentualMaximoRefugo;
+	private int intervaloSincronizacaoQuantidade;
 	
 	private List<OrdemProducaoDTO> ordensProducao = new ArrayList<OrdemProducaoDTO>();
 	
@@ -159,6 +160,13 @@ public class EquipamentoDTO {
 	}
 	public void setPercentualMaximoRefugo(double percentualMaximoRefugo) {
 		this.percentualMaximoRefugo = percentualMaximoRefugo;
+	}
+	
+	public int getIntervaloSincronizacaoQuantidade() {
+		return intervaloSincronizacaoQuantidade;
+	}
+	public void setIntervaloSincronizacaoQuantidade(int intervaloSincronizacaoQuantidade) {
+		this.intervaloSincronizacaoQuantidade = intervaloSincronizacaoQuantidade;
 	}
 
 	public List<ProgramacaoProducaoEquipamentoDTO> getProgramacoesProducao() {

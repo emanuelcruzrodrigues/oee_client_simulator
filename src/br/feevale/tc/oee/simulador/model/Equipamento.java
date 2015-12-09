@@ -72,6 +72,8 @@ public class Equipamento {
 
 	public void iniciarParadaEmProcesso(Integer idMotivoParada){
 		if (!ligado || isParado() || ordemProducaoAtual == null) return;
+		if (getDTO().getDuracaoMinimaParadasNoProcesso() != 0 || getDTO().getDuracaoMaximaParadasNoProcesso() != 0)	return;
+		
 		this.emProcesso = false;
 		killThreadProducao();
 		
@@ -136,8 +138,10 @@ public class Equipamento {
 		OrdemProducao ordemProducao = getProximaOrdemProducao();
 		if (ordemProducao != null && !ordemProducao.equals(ordemProducaoAtual)){
 			ordemProducaoAtual = ordemProducao;
-			iniciarParadaPorSetup();
-			return;
+			if (getDTO().getDuracaoMinimaParadaSetup() != 0 || getDTO().getDuracaoMaximaParadaSetup() != 0){
+				iniciarParadaPorSetup();
+				return;
+			}
 		}
 		ordemProducaoAtual = ordemProducao;
 		
@@ -172,7 +176,9 @@ public class Equipamento {
 		
 		Simulacao.getInstance().updateQuantidadeProduzida(this, ordemProducao, +quantidadeProduzida);
 		
-		if (getQuantidadeTotalProduzida() > 0 && getQuantidadeTotalProduzida() % getDTO().getUnidadesPorParadaQualidade() == 0){
+		if (getQuantidadeTotalProduzida() > 0 
+				&& (getDTO().getDuracaoMinimaParadaQualidade() != 0 || getDTO().getDuracaoMaximaParadaQualidade() != 0)				
+				&& getQuantidadeTotalProduzida() % getDTO().getUnidadesPorParadaQualidade() == 0){
 			iniciarParadaPorQualidade();
 			return;
 		}
@@ -180,8 +186,12 @@ public class Equipamento {
 		if (ordemProducao.getSaldoProduzir() <= 0){
 			ordemProducao = getProximaOrdemProducao();
 			if (ordemProducao != null && !ordemProducao.equals(ordemProducaoAtual)){
-				ordemProducaoAtual = ordemProducao;
-				iniciarParadaPorSetup();
+				if (getDTO().getDuracaoMinimaParadaSetup() != 0 || getDTO().getDuracaoMaximaParadaSetup() != 0){
+					ordemProducaoAtual = ordemProducao;
+					iniciarParadaPorSetup();
+				}else{
+					iniciarProducao();
+				}
 				return;
 			}
 			thread.setOrdemProducao(ordemProducao);

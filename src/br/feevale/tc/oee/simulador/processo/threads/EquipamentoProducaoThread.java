@@ -33,12 +33,15 @@ public class EquipamentoProducaoThread extends SimulacaoThread{
 					equipamento.desligar();
 					return;
 				}
+				
+				if (equipamento.isEmProcesso()){
+					Integer minimo = ordemProducao.getDTO().getUnidadesPorMinutoMinimo();
+					Integer maximo = ordemProducao.getDTO().getUnidadesPorMinutoMaximo();
+					int quantidadeProduzida = RandomUtils.nextInt(minimo, maximo);
+					
+					equipamento.produzir(this, quantidadeProduzida);
+				}
 
-				Integer minimo = ordemProducao.getDTO().getUnidadesPorMinutoMinimo();
-				Integer maximo = ordemProducao.getDTO().getUnidadesPorMinutoMaximo();
-				int quantidadeProduzida = RandomUtils.nextInt(minimo, maximo);
-
-				equipamento.produzir(this, quantidadeProduzida);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -20,7 +20,7 @@ public class AnalisadorQualidadeEquipamentoThread extends Thread {
 	public void run() {
 		try {
 			while(true){
-				Thread.sleep(ThreadUtils.aplicarConversaoIntervalo(5));
+				Thread.sleep(ThreadUtils.aplicarConversaoIntervalo(equipamento.getDTO().getIntervaloSincronizacaoQuantidade()));
 				if (!equipamento.isLigado()) return;
 				for (OrdemProducao ordemProducao : equipamento.getOrdensProducao()) {
 					Simulacao simulacao = Simulacao.getInstance();
@@ -31,7 +31,7 @@ public class AnalisadorQualidadeEquipamentoThread extends Thread {
 					
 					Integer refugo = new Double(percentualRefugo * quantidadeProduzida).intValue();
 					
-					simulacao.getApontamentoWS().inserirApontamentoQuantidade(ordemProducao.getId(), quantidadeProduzida);
+					simulacao.getApontamentoWS().inserirApontamentoQuantidade(ordemProducao.getId(), quantidadeProduzida-refugo);
 					if (refugo > 0){
 						simulacao.getApontamentoWS().inserirApontamentoQuantidadeRefugo(ordemProducao.getId(), refugo);
 					}
